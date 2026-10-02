@@ -15,3 +15,4 @@ D:\Project\ProbleMatic\src\ProbleMatic.Infrastructure\obj\Debug\net10.0\ProbleMa
 D:\Project\ProbleMatic\src\ProbleMatic.Infrastructure\obj\Debug\net10.0\refint\ProbleMatic.Infrastructure.dll
 D:\Project\ProbleMatic\src\ProbleMatic.Infrastructure\obj\Debug\net10.0\ProbleMatic.Infrastructure.pdb
 D:\Project\ProbleMatic\src\ProbleMatic.Infrastructure\obj\Debug\net10.0\ref\ProbleMatic.Infrastructure.dll
+d:\Project\ProbleMatic\src\ProbleMatic.Infrastructure\obj\Debug\net10.0\ProbleMatic.Infrastructure.sourcelink.json

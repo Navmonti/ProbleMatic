@@ -37,3 +37,6 @@ D:\Project\ProbleMatic\src\ProbleMatic.Api\obj\Debug\net10.0\refint\ProbleMatic.
 D:\Project\ProbleMatic\src\ProbleMatic.Api\obj\Debug\net10.0\ProbleMatic.Api.pdb
 D:\Project\ProbleMatic\src\ProbleMatic.Api\obj\Debug\net10.0\ProbleMatic.Api.genruntimeconfig.cache
 D:\Project\ProbleMatic\src\ProbleMatic.Api\obj\Debug\net10.0\ref\ProbleMatic.Api.dll
+d:\Project\ProbleMatic\src\ProbleMatic.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+d:\Project\ProbleMatic\src\ProbleMatic.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+d:\Project\ProbleMatic\src\ProbleMatic.Api\obj\Debug\net10.0\ProbleMatic.Api.sourcelink.json
