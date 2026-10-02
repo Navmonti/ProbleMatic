@@ -1,0 +1,15 @@
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMatic.Application.csproj.AssemblyReference.cache
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMatic.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMatic.Application.AssemblyInfoInputs.cache
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMatic.Application.AssemblyInfo.cs
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMatic.Application.csproj.CoreCompileInputs.cache
+D:\Project\ProbleMatic\src\ProbleMatic.Application\bin\Debug\net10.0\ProbleMatic.Application.deps.json
+D:\Project\ProbleMatic\src\ProbleMatic.Application\bin\Debug\net10.0\ProbleMatic.Application.dll
+D:\Project\ProbleMatic\src\ProbleMatic.Application\bin\Debug\net10.0\ProbleMatic.Application.pdb
+D:\Project\ProbleMatic\src\ProbleMatic.Application\bin\Debug\net10.0\ProbleMatic.Domain.dll
+D:\Project\ProbleMatic\src\ProbleMatic.Application\bin\Debug\net10.0\ProbleMatic.Domain.pdb
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMa.C2F8E9DB.Up2Date
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMatic.Application.dll
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\refint\ProbleMatic.Application.dll
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ProbleMatic.Application.pdb
+D:\Project\ProbleMatic\src\ProbleMatic.Application\obj\Debug\net10.0\ref\ProbleMatic.Application.dll
