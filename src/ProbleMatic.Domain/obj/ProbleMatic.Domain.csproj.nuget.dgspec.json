@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj": {}
+    "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj": {}
   },
   "projects": {
-    "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj": {
+    "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj",
+        "projectUniqueName": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj",
         "projectName": "ProbleMatic.Domain",
-        "projectPath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj",
+        "projectPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\obj\\",
+        "outputPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

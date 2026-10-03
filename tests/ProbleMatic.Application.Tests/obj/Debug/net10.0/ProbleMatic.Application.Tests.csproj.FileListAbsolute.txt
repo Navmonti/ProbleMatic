@@ -101,3 +101,4 @@ D:\Project\ProbleMatic\tests\ProbleMatic.Application.Tests\obj\Debug\net10.0\ref
 D:\Project\ProbleMatic\tests\ProbleMatic.Application.Tests\obj\Debug\net10.0\ProbleMatic.Application.Tests.pdb
 D:\Project\ProbleMatic\tests\ProbleMatic.Application.Tests\obj\Debug\net10.0\ProbleMatic.Application.Tests.genruntimeconfig.cache
 D:\Project\ProbleMatic\tests\ProbleMatic.Application.Tests\obj\Debug\net10.0\ref\ProbleMatic.Application.Tests.dll
+D:\Project\ProbleMatic\tests\ProbleMatic.Application.Tests\obj\Debug\net10.0\ProbleMatic.Application.Tests.sourcelink.json

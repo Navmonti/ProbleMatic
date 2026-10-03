@@ -98,3 +98,4 @@ D:\Project\ProbleMatic\tests\ProbleMatic.Domain.Tests\obj\Debug\net10.0\refint\P
 D:\Project\ProbleMatic\tests\ProbleMatic.Domain.Tests\obj\Debug\net10.0\ProbleMatic.Domain.Tests.pdb
 D:\Project\ProbleMatic\tests\ProbleMatic.Domain.Tests\obj\Debug\net10.0\ProbleMatic.Domain.Tests.genruntimeconfig.cache
 D:\Project\ProbleMatic\tests\ProbleMatic.Domain.Tests\obj\Debug\net10.0\ref\ProbleMatic.Domain.Tests.dll
+D:\Project\ProbleMatic\tests\ProbleMatic.Domain.Tests\obj\Debug\net10.0\ProbleMatic.Domain.Tests.sourcelink.json

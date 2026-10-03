@@ -224,11 +224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
+      "projectUniqueName": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
       "projectName": "ProbleMatic.Api",
-      "projectPath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
+      "projectPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\obj\\",
+      "outputPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -250,8 +250,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Application\\ProbleMatic.Application.csproj": {
-              "projectPath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Application\\ProbleMatic.Application.csproj"
+            "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Application\\ProbleMatic.Application.csproj": {
+              "projectPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Application\\ProbleMatic.Application.csproj"
             },
             "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Infrastructure\\ProbleMatic.Infrastructure.csproj": {
               "projectPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Infrastructure\\ProbleMatic.Infrastructure.csproj"

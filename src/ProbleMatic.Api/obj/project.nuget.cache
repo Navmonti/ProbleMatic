@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C1B1Kw30cN4=",
+  "dgSpecHash": "aznD1Ztrmos=",
   "success": true,
-  "projectFilePath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
+  "projectFilePath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.8\\microsoft.aspnetcore.openapi.10.0.8.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.0\\microsoft.entityframeworkcore.10.0.0.nupkg.sha512",
@@ -15,9 +15,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
+      "projectPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
       "warningLevel": 1,
-      "filePath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
+      "filePath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Api\\ProbleMatic.Api.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"
