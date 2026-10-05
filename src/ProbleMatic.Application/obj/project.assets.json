@@ -107,8 +107,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj": {
-              "projectPath": "D:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj"
+            "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj": {
+              "projectPath": "d:\\Project\\ProbleMatic\\src\\ProbleMatic.Domain\\ProbleMatic.Domain.csproj"
             }
           }
         }

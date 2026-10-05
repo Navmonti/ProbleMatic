@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ProbleMatic.Api.DTOs.Roles;
 using ProbleMatic.Application.Interfaces;
 
 namespace ProbleMatic.Api.Controllers;
@@ -17,7 +18,9 @@ public class RolesController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
-        var roles = await _roleService.GetAllRolesAsync(cancellationToken);
+        var roles = (await _roleService.GetAllRolesAsync(cancellationToken))
+            .Select(role => new RoleResponse(role.Id, role.Name, role.CreatedAt));
+
         return Ok(roles);
     }
 
@@ -31,14 +34,14 @@ public class RolesController : ControllerBase
             return NotFound();
         }
 
-        return Ok(role);
+        return Ok(new RoleResponse(role.Id, role.Name, role.CreatedAt));
     }
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateRoleRequest request, CancellationToken cancellationToken)
     {
         var role = await _roleService.CreateRoleAsync(request.Name, cancellationToken);
-        return CreatedAtAction(nameof(GetById), new { id = role.Id }, role);
+        return CreatedAtAction(nameof(GetById), new { id = role.Id }, new RoleResponse(role.Id, role.Name, role.CreatedAt));
     }
 
     [HttpPut("{id:guid}")]
@@ -54,8 +57,4 @@ public class RolesController : ControllerBase
         await _roleService.DeleteRoleAsync(id, cancellationToken);
         return NoContent();
     }
-
-    public sealed record CreateRoleRequest(string Name);
-
-    public sealed record UpdateRoleRequest(string Name);
 }

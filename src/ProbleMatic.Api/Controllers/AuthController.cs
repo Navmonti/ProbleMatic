@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ProbleMatic.Api.DTOs;
-using ProbleMatic.Application.Services;
+using ProbleMatic.Application.Interfaces;
 
 namespace ProbleMatic.Api.Controllers;
 
@@ -8,9 +8,9 @@ namespace ProbleMatic.Api.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly UserService _userService;
+    private readonly IUserService _userService;
 
-    public AuthController(UserService userService)
+    public AuthController(IUserService userService)
     {
         _userService = userService;
     }

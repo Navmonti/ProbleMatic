@@ -1,14 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using ProbleMatic.Application.IRepositories;
+using ProbleMatic.Infrastructure.Persistence;
 
 namespace ProbleMatic.Infrastructure.Repositories;
 
 public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
 {
-    private readonly DbContext _context;
+    private readonly AppDbContext _context;
     private readonly DbSet<TEntity> _dbSet;
 
-    public GenericRepository(DbContext context)
+    public GenericRepository(AppDbContext context)
     {
         _context = context;
         _dbSet = context.Set<TEntity>();

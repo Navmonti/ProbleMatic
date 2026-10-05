@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ProbleMatic.Api.DTOs.Departments;
 using ProbleMatic.Application.Interfaces;
 
 namespace ProbleMatic.Api.Controllers;
@@ -17,7 +18,9 @@ public class DepartmentsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
-        var departments = await _departmentService.GetAllDepartmentsAsync(cancellationToken);
+        var departments = (await _departmentService.GetAllDepartmentsAsync(cancellationToken))
+            .Select(department => new DepartmentResponse(department.Id, department.Name, department.CreatedAt));
+
         return Ok(departments);
     }
 
@@ -31,14 +34,14 @@ public class DepartmentsController : ControllerBase
             return NotFound();
         }
 
-        return Ok(department);
+        return Ok(new DepartmentResponse(department.Id, department.Name, department.CreatedAt));
     }
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateDepartmentRequest request, CancellationToken cancellationToken)
     {
         var department = await _departmentService.CreateDepartmentAsync(request.Name, cancellationToken);
-        return CreatedAtAction(nameof(GetById), new { id = department.Id }, department);
+        return CreatedAtAction(nameof(GetById), new { id = department.Id }, new DepartmentResponse(department.Id, department.Name, department.CreatedAt));
     }
 
     [HttpPut("{id:guid}")]
@@ -54,8 +57,4 @@ public class DepartmentsController : ControllerBase
         await _departmentService.DeleteDepartmentAsync(id, cancellationToken);
         return NoContent();
     }
-
-    public sealed record CreateDepartmentRequest(string Name);
-
-    public sealed record UpdateDepartmentRequest(string Name);
 }

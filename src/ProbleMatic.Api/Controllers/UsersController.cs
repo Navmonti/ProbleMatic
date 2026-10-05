@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using ProbleMatic.Application.Services;
+using ProbleMatic.Api.DTOs.Users;
+using ProbleMatic.Application.Interfaces;
 
 namespace ProbleMatic.Api.Controllers;
 
@@ -7,9 +8,9 @@ namespace ProbleMatic.Api.Controllers;
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
 {
-    private readonly UserService _userService;
+    private readonly IUserService _userService;
 
-    public UsersController(UserService userService)
+    public UsersController(IUserService userService)
     {
         _userService = userService;
     }
@@ -17,7 +18,15 @@ public class UsersController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
-        var users = await _userService.GetAllUsersAsync(cancellationToken);
+        var users = (await _userService.GetAllUsersAsync(cancellationToken))
+            .Select(user => new UserResponse(
+                user.Id,
+                user.FirstName,
+                user.LastName,
+                user.Email,
+                user.PasswordHash,
+                user.CreatedAt));
+
         return Ok(users);
     }
 
@@ -31,7 +40,13 @@ public class UsersController : ControllerBase
             return NotFound();
         }
 
-        return Ok(user);
+        return Ok(new UserResponse(
+            user.Id,
+            user.FirstName,
+            user.LastName,
+            user.Email,
+            user.PasswordHash,
+            user.CreatedAt));
     }
 
     [HttpPost]
@@ -44,7 +59,13 @@ public class UsersController : ControllerBase
             request.PasswordHash,
             cancellationToken);
 
-        return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+        return CreatedAtAction(nameof(GetById), new { id = user.Id }, new UserResponse(
+            user.Id,
+            user.FirstName,
+            user.LastName,
+            user.Email,
+            user.PasswordHash,
+            user.CreatedAt));
     }
 
     [HttpPut("{id:guid}")]
@@ -60,15 +81,4 @@ public class UsersController : ControllerBase
         await _userService.DeleteUserAsync(id, cancellationToken);
         return NoContent();
     }
-
-    public sealed record CreateUserRequest(
-        string FirstName,
-        string LastName,
-        string Email,
-        string PasswordHash);
-
-    public sealed record UpdateUserRequest(
-        string FirstName,
-        string LastName,
-        string Email);
 }

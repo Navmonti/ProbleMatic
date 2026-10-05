@@ -1,9 +1,10 @@
+using ProbleMatic.Application.Interfaces;
 using ProbleMatic.Application.IRepositories;
 using ProbleMatic.Domain.Entities;
 
 namespace ProbleMatic.Application.Services;
 
-public class UserService
+public class UserService : IUserService
 {
     private readonly IGenericRepository<User> _userRepository;
 
