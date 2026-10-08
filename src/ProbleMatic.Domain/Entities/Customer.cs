@@ -1,39 +1,37 @@
 namespace ProbleMatic.Domain.Entities;
 
-public class User
+public class Customer
 {
     public Guid Id { get; private set; }
+    public Guid UserId { get; private set; }
     public string FirstName { get; private set; } = string.Empty;
     public string LastName { get; private set; } = string.Empty;
     public string Email { get; private set; } = string.Empty;
-    public string PasswordHash { get; private set; } = string.Empty;
-    public ICollection<Customer> Customers { get; private set; } = new List<Customer>();
-    public ICollection<UserRole> UserRoles { get; private set; } = new List<UserRole>();
+    public string PhoneNumber { get; private set; } = string.Empty;
+    public User User { get; private set; } = null!;
     public DateTime CreatedAt { get; private set; }
 
-    private User()
+    private Customer()
     {
     }
 
-    public User(string firstName, string lastName, string email, string passwordHash)
+    public Customer(string firstName, string lastName, string email, string phoneNumber, Guid userId = default)
     {
         Id = Guid.NewGuid();
+        UserId = userId;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
-        PasswordHash = passwordHash;
+        PhoneNumber = phoneNumber;
         CreatedAt = DateTime.UtcNow;
     }
 
-    public void UpdateProfile(string firstName, string lastName, string email)
+    public void UpdateProfile(string firstName, string lastName, string email, string phoneNumber, Guid userId)
     {
+        UserId = userId;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
-    }
-
-    public void ChangePassword(string passwordHash)
-    {
-        PasswordHash = passwordHash;
+        PhoneNumber = phoneNumber;
     }
 }

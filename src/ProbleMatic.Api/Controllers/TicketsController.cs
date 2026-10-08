@@ -19,7 +19,32 @@ public class TicketsController : ControllerBase
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
         var tickets = (await _ticketService.GetAllTicketsAsync(cancellationToken))
-            .Select(ticket => new TicketResponse(ticket.Id, ticket.Title, ticket.Description, ticket.Status, ticket.CreatedAt));
+            .Select(ticket => new TicketResponse(
+                ticket.Id,
+                ticket.Title,
+                ticket.Description,
+                ticket.Status,
+                ticket.CreatorUserId,
+                ticket.DepartmentId,
+                ticket.AssignedEmployeeId,
+                ticket.CreatedAt));
+
+        return Ok(tickets);
+    }
+
+    [HttpGet("department/{departmentId:guid}")]
+    public async Task<IActionResult> GetByDepartment(Guid departmentId, CancellationToken cancellationToken)
+    {
+        var tickets = (await _ticketService.GetTicketsByDepartmentAsync(departmentId, cancellationToken))
+            .Select(ticket => new TicketResponse(
+                ticket.Id,
+                ticket.Title,
+                ticket.Description,
+                ticket.Status,
+                ticket.CreatorUserId,
+                ticket.DepartmentId,
+                ticket.AssignedEmployeeId,
+                ticket.CreatedAt));
 
         return Ok(tickets);
     }
@@ -34,20 +59,60 @@ public class TicketsController : ControllerBase
             return NotFound();
         }
 
-        return Ok(new TicketResponse(ticket.Id, ticket.Title, ticket.Description, ticket.Status, ticket.CreatedAt));
+        return Ok(new TicketResponse(
+            ticket.Id,
+            ticket.Title,
+            ticket.Description,
+            ticket.Status,
+            ticket.CreatorUserId,
+            ticket.DepartmentId,
+            ticket.AssignedEmployeeId,
+            ticket.CreatedAt));
     }
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateTicketRequest request, CancellationToken cancellationToken)
     {
-        var ticket = await _ticketService.CreateTicketAsync(request.Title, request.Description, request.Status, cancellationToken);
-        return CreatedAtAction(nameof(GetById), new { id = ticket.Id }, new TicketResponse(ticket.Id, ticket.Title, ticket.Description, ticket.Status, ticket.CreatedAt));
+        var ticket = await _ticketService.CreateTicketAsync(
+            request.Title,
+            request.Description,
+            request.CreatorUserId,
+            request.DepartmentId,
+            request.AssignedEmployeeId,
+            request.Status,
+            cancellationToken);
+
+        return CreatedAtAction(nameof(GetById), new { id = ticket.Id }, new TicketResponse(
+            ticket.Id,
+            ticket.Title,
+            ticket.Description,
+            ticket.Status,
+            ticket.CreatorUserId,
+            ticket.DepartmentId,
+            ticket.AssignedEmployeeId,
+            ticket.CreatedAt));
     }
 
     [HttpPut("{id:guid}")]
     public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTicketRequest request, CancellationToken cancellationToken)
     {
-        await _ticketService.UpdateTicketAsync(id, request.Title, request.Description, request.Status, cancellationToken);
+        await _ticketService.UpdateTicketAsync(
+            id,
+            request.Title,
+            request.Description,
+            request.Status,
+            request.CreatorUserId,
+            request.DepartmentId,
+            request.AssignedEmployeeId,
+            cancellationToken);
+
+        return NoContent();
+    }
+
+    [HttpPatch("{id:guid}/assign-employee")]
+    public async Task<IActionResult> AssignEmployee(Guid id, [FromBody] AssignTicketToEmployeeRequest request, CancellationToken cancellationToken)
+    {
+        await _ticketService.AssignTicketToEmployeeAsync(id, request.EmployeeId, cancellationToken);
         return NoContent();
     }
 

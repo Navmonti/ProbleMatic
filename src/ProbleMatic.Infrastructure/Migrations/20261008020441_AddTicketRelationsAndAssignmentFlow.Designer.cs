@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProbleMatic.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using ProbleMatic.Infrastructure.Persistence;
 namespace ProbleMatic.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261008020441_AddTicketRelationsAndAssignmentFlow")]
+    partial class AddTicketRelationsAndAssignmentFlow
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,15 +54,10 @@ namespace ProbleMatic.Infrastructure.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
                         .IsUnique();
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Customers");
                 });
@@ -145,7 +143,7 @@ namespace ProbleMatic.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AssignedEmployeeId")
+                    b.Property<Guid>("AssignedEmployeeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -235,23 +233,10 @@ namespace ProbleMatic.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
-
                     b.HasIndex("UserId", "RoleId")
                         .IsUnique();
 
                     b.ToTable("UserRoles");
-                });
-
-            modelBuilder.Entity("ProbleMatic.Domain.Entities.Customer", b =>
-                {
-                    b.HasOne("ProbleMatic.Domain.Entities.User", "User")
-                        .WithMany("Customers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ProbleMatic.Domain.Entities.Ticket", b =>
@@ -259,7 +244,8 @@ namespace ProbleMatic.Infrastructure.Migrations
                     b.HasOne("ProbleMatic.Domain.Entities.Employee", "AssignedEmployee")
                         .WithMany()
                         .HasForeignKey("AssignedEmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("ProbleMatic.Domain.Entities.User", "CreatorUser")
                         .WithMany()
@@ -278,37 +264,6 @@ namespace ProbleMatic.Infrastructure.Migrations
                     b.Navigation("CreatorUser");
 
                     b.Navigation("Department");
-                });
-
-            modelBuilder.Entity("ProbleMatic.Domain.Entities.UserRole", b =>
-                {
-                    b.HasOne("ProbleMatic.Domain.Entities.Role", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProbleMatic.Domain.Entities.User", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ProbleMatic.Domain.Entities.Role", b =>
-                {
-                    b.Navigation("UserRoles");
-                });
-
-            modelBuilder.Entity("ProbleMatic.Domain.Entities.User", b =>
-                {
-                    b.Navigation("Customers");
-
-                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }
